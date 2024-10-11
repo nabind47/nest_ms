@@ -139,3 +139,5 @@ rm -rf libs/contracts/src/*
 mkdir libs/contracts/src/books
 cp apps/books/src/books/dto/* libs/contracts/src/books
 ```
+
+- [ ] Handle Port and Configuration of Modules
