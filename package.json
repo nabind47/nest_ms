@@ -22,6 +22,7 @@
   "dependencies": {
     "@nestjs/common": "^10.0.0",
     "@nestjs/core": "^10.0.0",
+    "@nestjs/mapped-types": "*",
     "@nestjs/microservices": "^10.4.4",
     "@nestjs/platform-express": "^10.0.0",
     "reflect-metadata": "^0.1.13",
@@ -67,7 +68,11 @@
     "coverageDirectory": "./coverage",
     "testEnvironment": "node",
     "roots": [
-      "<rootDir>/apps/"
-    ]
+      "<rootDir>/apps/",
+      "<rootDir>/libs/"
+    ],
+    "moduleNameMapper": {
+      "^@app/contracts(|/.*)$": "<rootDir>/libs/contracts/src/$1"
+    }
   }
 }

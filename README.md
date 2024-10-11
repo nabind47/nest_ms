@@ -1,3 +1,7 @@
+![alt text](images/arch.png)
+
+![alt text](images/arch_detail.png)
+
 ## CONVERT MONOREPO
 
 ```sh
@@ -66,6 +70,10 @@ export class UsersController {
 }
 ```
 
+```sh
+nest generate resource books --project books
+```
+
 ## GATEWAY
 
 ```sh
@@ -109,4 +117,25 @@ export class UsersService {
     return this.usersClient.send('users.findAll', {});
   }
 }
+```
+
+## ORGANIZING CODE
+
+```sh
+EACH MICROSERVICE WILL DEFINE WHAT MESSAGES IT CAN HANDLE
+AND WHAT PAYLOAD IT EXPECTS
+AND WHAT DATA IT RETURNS
+
+THOSE CONTRACTS WILL BE ADDED IN THE SHARED LIBRARY THAT IS USED BY THE MICROSERVICES APPLICATION
+AND THE GATEWAY
+GATEWAY DTO WILL STAY AS THEY ARE
+BECAUSE THERE IS NO NEED TO SHARE THEM, THEY ARE ONLY USED INSIDE GAEWAY
+```
+
+```sh
+nest generate library contracts
+
+rm -rf libs/contracts/src/*
+mkdir libs/contracts/src/books
+cp apps/books/src/books/dto/* libs/contracts/src/books
 ```
